@@ -9,13 +9,15 @@
             overflow: hidden;
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            justify-content: space-between;
+            min-height: 100vh;
             text-align: center;
+            background-color: #f1f1f1; /* Цвет фона */
         }
 
-        #gifBackground {
+        #backgroundImage {
             position: fixed;
             top: 0;
             left: 0;
@@ -32,6 +34,7 @@
             max-width: 80%; /* Ширина контейнера */
             position: relative;
             z-index: 1;
+            margin-bottom: 50px; /* Увеличенное расстояние между верхней и нижней частями */
         }
 
         h1 {
@@ -53,22 +56,6 @@
             background-color: #4CAF50;
         }
 
-        #telegramLink {
-            margin-top: 20px;
-            font-size: 14px;
-            color: white; /* Изменен цвет текста */
-            text-decoration: none;
-            display: inline-block;
-            background-color: #3498db; /* Добавлен фон */
-            padding: 10px 15px; /* Добавлен отступ вокруг текста */
-            border-radius: 5px; /* Добавлено скругление углов */
-            margin-top: 20px; /* Увеличенное расстояние */
-        }
-
-        #telegramLink:hover {
-            background-color: #2980b9;
-        }
-
         #note {
             margin-top: 20px; /* Увеличенное расстояние */
             font-size: 14px;
@@ -82,17 +69,44 @@
             color: #333;
         }
 
+        #telegramLink {
+            margin-top: auto; /* Перемещение вниз (вниз страницы) */
+            margin-bottom: 20px; /* Увеличенное расстояние */
+            font-size: 14px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            background-color: #3498db;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        #telegramLink:hover {
+            background-color: #2980b9;
+        }
+
         @media only screen and (max-width: 600px) {
             /* Стили для мобильных устройств */
+            #backgroundImage {
+                content: url('https://github.com/Mix145145/web/blob/main/JP/MB.jpg'); /* Замените ссылку на изображение для мобильной версии */
+            }
+
             #main {
-                margin: 20px auto; /* Уменьшенные отступы по бокам */
+                margin: 20px auto;
+            }
+        }
+
+        @media only screen and (min-width: 601px) {
+            /* Стили для настольных устройств */
+            #backgroundImage {
+                content: url('https://github.com/Mix145145/web/blob/main/JP/PC.jpg'); /* Замените ссылку на изображение для настольной версии */
             }
         }
     </style>
 </head>
 
 <body>
-    <img id="gifBackground" src="https://media.giphy.com/media/9wKDGBhVBBzrMolDcE/giphy.gif" alt="Background">
+    <img id="backgroundImage">
 
     <div id="main">
 
@@ -100,7 +114,7 @@
 
         <br>
         <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"></script>
-        <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
+        <esp-web-install-button id="installButton" manifest="https://github.com/Mix145145/web/blob/main/webflash/manifest.json"></esp-web-install-button>
         <br>
         <div id="note">
             ПРИМЕЧАНИЕ: Убедитесь, что закрыты все устройства, использующие порт com (например, монитор последовательного порта)
@@ -114,4 +128,3 @@
 </body>
 
 </html>
-
