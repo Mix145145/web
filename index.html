@@ -7,6 +7,8 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
         }
 
         #gifBackground {
@@ -23,7 +25,8 @@
             background-color: rgba(255, 255, 255, 0.7);
             padding: 20px;
             border-radius: 15px;
-            margin: 50px;
+            margin: 50px auto; /* Центрирование по горизонтали */
+            max-width: 80%; /* Ширина контейнера */
             display: inline-block;
             position: relative;
             z-index: 1;
@@ -69,6 +72,20 @@
             font-size: 14px;
             color: #333;
         }
+
+        #notSupported {
+            display: none;
+            margin-top: 20px; /* Увеличенное расстояние */
+            font-size: 14px;
+            color: #333;
+        }
+
+        @media only screen and (max-width: 600px) {
+            /* Стили для мобильных устройств */
+            #main {
+                margin: 20px auto; /* Уменьшенные отступы по бокам */
+            }
+        }
     </style>
 </head>
 
@@ -87,7 +104,7 @@
             ПРИМЕЧАНИЕ: Убедитесь, что закрыты все устройства, использующие порт com (например, монитор последовательного порта)
         </div>
     </div>
-    <div id="notSupported" style="display: none;">
+    <div id="notSupported">
         Ваш браузер не поддерживает Web Serial API. Попробуйте Chrome
     </div>
 
@@ -95,3 +112,4 @@
 </body>
 
 </html>
+
